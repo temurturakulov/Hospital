@@ -24,6 +24,7 @@ namespace Hospital.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
@@ -37,7 +38,7 @@ namespace Hospital.Controllers
                 {
                     //установка куки
                     await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Register", "Home");
+                    return RedirectToAction("Register", "Index");
 
                 }
                 else
