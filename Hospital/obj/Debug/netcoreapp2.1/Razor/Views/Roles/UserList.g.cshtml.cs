@@ -64,7 +64,7 @@ namespace AspNetCore
             WriteLiteral("</td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(273, 97, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dca2c52f02c14852978a7fab0800b9c3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b2100ea818954ab0b543d144211339d9", async() => {
                 BeginContext(353, 13, true);
                 WriteLiteral("Права доступа");
                 EndContext();

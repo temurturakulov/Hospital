@@ -2,6 +2,9 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "AppSmarts.Windows.Javascript/0.34.0": {
+        "type": "package"
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -4619,6 +4622,66 @@
     }
   },
   "libraries": {
+    "AppSmarts.Windows.Javascript/0.34.0": {
+      "sha512": "EebfU9AaZTXx7RYkbswNoqF/EQS/RDt1hr07VsimuyUN1l5K5hu9WMj4776ISXaHdDxZZ2pcZv697T0Aan1Xng==",
+      "type": "package",
+      "path": "appsmarts.windows.javascript/0.34.0",
+      "files": [
+        ".signature.p7s",
+        "AppSmarts.Nuget.Windows.Javascript.csproj",
+        "NuGet.config",
+        "NuGet.exe",
+        "NuGet.log",
+        "NuGetPackage.ps1",
+        "NuGetSetup.ps1",
+        "Pack.ps1",
+        "Properties/AssemblyInfo.cs",
+        "app.config",
+        "appsmarts.windows.javascript.0.34.0.nupkg.sha512",
+        "appsmarts.windows.javascript.nuspec",
+        "bin/Debug/Itenso.TimePeriod.dll",
+        "bin/Debug/Itenso.TimePeriodTests.exe",
+        "bin/Debug/ReferEngine.Nuget.Windows.Javascript.dll",
+        "bin/Debug/ReferEngine.Nuget.Windows.Javascript.dll.config",
+        "bin/Debug/ReferEngine.Nuget.Windows.Javascript.pdb",
+        "bin/Debug/de/Itenso.TimePeriod.resources.dll",
+        "bin/Debug/nunit-console-runner.dll",
+        "bin/Debug/nunit.core.dll",
+        "bin/Debug/nunit.core.interfaces.dll",
+        "bin/Debug/nunit.framework.dll",
+        "bin/Debug/nunit.util.dll",
+        "bin/Release/AppSmarts.Nuget.Windows.Javascript.dll",
+        "bin/Release/AppSmarts.Nuget.Windows.Javascript.dll.config",
+        "bin/Release/AppSmarts.Nuget.Windows.Javascript.pdb",
+        "bin/Release/Itenso.TimePeriod.dll",
+        "bin/Release/Itenso.TimePeriodTests.exe",
+        "bin/Release/de/Itenso.TimePeriod.resources.dll",
+        "bin/Release/nunit-console-runner.dll",
+        "bin/Release/nunit.core.dll",
+        "bin/Release/nunit.core.interfaces.dll",
+        "bin/Release/nunit.framework.dll",
+        "bin/Release/nunit.util.dll",
+        "content/AppSmarts/AppSmarts-AppBarIcon.png",
+        "content/AppSmarts/AppSmarts.Initialize.js",
+        "content/AppSmarts/AppSmarts.js",
+        "docu/ChangeHistory.txt",
+        "docu/TimePeriod_en.pdf",
+        "obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache",
+        "obj/Debug/ReferEngine.Nuget.Windows.Javascript.csproj.FileListAbsolute.txt",
+        "obj/Debug/ReferEngine.Nuget.Windows.Javascript.csprojResolveAssemblyReference.cache",
+        "obj/Debug/ReferEngine.Nuget.Windows.Javascript.dll",
+        "obj/Debug/ReferEngine.Nuget.Windows.Javascript.pdb",
+        "obj/Release/AppSmarts.Nuget.Windows.Javascript.csproj.FileListAbsolute.txt",
+        "obj/Release/AppSmarts.Nuget.Windows.Javascript.csprojResolveAssemblyReference.cache",
+        "obj/Release/AppSmarts.Nuget.Windows.Javascript.dll",
+        "obj/Release/AppSmarts.Nuget.Windows.Javascript.pdb",
+        "obj/Release/DesignTimeResolveAssemblyReferencesInput.cache",
+        "packages.config",
+        "tools/init.ps1",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "sha512": "rMDlyePoxggkmN/qgha1+BR2Uy+dOr38xKCQOPfVNKGY07R2nYJGMTKJFE1XFgwD70RYUNazf2fqutjJF18XgQ==",
       "type": "package",
@@ -12212,6 +12275,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "AppSmarts.Windows.Javascript >= 0.34.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Mvc.TagHelpers >= 2.1.1",
       "Microsoft.NETCore.App >= 2.1.0",
@@ -12259,6 +12323,10 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "AppSmarts.Windows.Javascript": {
+            "target": "Package",
+            "version": "[0.34.0, )"
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",

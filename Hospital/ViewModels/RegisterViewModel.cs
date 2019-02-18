@@ -17,6 +17,7 @@ namespace Hospital.ViewModels
         public int Year { get; set; }
 
         [Required]
+        [StringLength(100, ErrorMessage = "Длина {0} должна быть не менее {2} и не более {1} символов.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name ="Пароль")]
         public string Password { get; set; }
@@ -24,7 +25,7 @@ namespace Hospital.ViewModels
         [Required]
         [Compare("Password", ErrorMessage ="Пароли не совпадают")]
         [DataType(DataType.Password)]
-        [Display(Name ="Подтвердите пароль")]
+        [Display(Name = "Подтверждение пароля")]
         public string PasswordConfirm { get; set; }
 
 
