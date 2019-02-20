@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Hospital.Migrations
 {
-    public partial class FirsMigration : Migration
+    public partial class Doctor : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,7 +46,8 @@ namespace Hospital.Migrations
                     LastName = table.Column<string>(nullable: true),
                     Year = table.Column<int>(nullable: false),
                     RoleId = table.Column<int>(nullable: false),
-                    AuthId = table.Column<int>(nullable: false)
+                    AuthId = table.Column<int>(nullable: false),
+                    DoctorSpecialtyId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -65,6 +66,19 @@ namespace Hospital.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Authorizations", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DoctorSpecialties",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DoctorSpecialties", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -245,6 +259,9 @@ namespace Hospital.Migrations
 
             migrationBuilder.DropTable(
                 name: "Authorizations");
+
+            migrationBuilder.DropTable(
+                name: "DoctorSpecialties");
 
             migrationBuilder.DropTable(
                 name: "Roles");

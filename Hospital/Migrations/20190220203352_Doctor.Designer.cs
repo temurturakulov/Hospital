@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hospital.Migrations
 {
     [DbContext(typeof(AuthorizationContext))]
-    [Migration("20190209212255_FirsMigration")]
-    partial class FirsMigration
+    [Migration("20190220203352_Doctor")]
+    partial class Doctor
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,6 +34,19 @@ namespace Hospital.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Authorizations");
+                });
+
+            modelBuilder.Entity("Hospital.Models.DoctorSpecialty", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DoctorSpecialties");
                 });
 
             modelBuilder.Entity("Hospital.Models.Role", b =>
@@ -60,6 +73,8 @@ namespace Hospital.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
+
+                    b.Property<int?>("DoctorSpecialtyId");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);

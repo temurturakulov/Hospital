@@ -34,6 +34,19 @@ namespace Hospital.Migrations
                     b.ToTable("Authorizations");
                 });
 
+            modelBuilder.Entity("Hospital.Models.DoctorSpecialty", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DoctorSpecialties");
+                });
+
             modelBuilder.Entity("Hospital.Models.Role", b =>
                 {
                     b.Property<int>("Id")
@@ -58,6 +71,8 @@ namespace Hospital.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
+
+                    b.Property<int?>("DoctorSpecialtyId");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);

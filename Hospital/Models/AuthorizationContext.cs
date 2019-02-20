@@ -11,6 +11,7 @@ namespace Hospital.Models
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<DoctorSpecialty> DoctorSpecialties { get; set; }
         public DbSet<Authorization> Authorizations { get; set; }
 
         public AuthorizationContext(DbContextOptions<AuthorizationContext> options)

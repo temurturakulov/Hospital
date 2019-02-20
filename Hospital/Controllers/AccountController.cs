@@ -38,7 +38,7 @@ namespace Hospital.Controllers
                 {
                     //установка куки
                     await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Register", "Index");
+                    return RedirectToAction("Register", "Account");
 
                 }
                 else

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hospital.Controllers
 {
-    [Authorize(Roles="admin")]
+    //[Authorize(Roles="admin")]
     public class HomeController:Controller
     {
         public IActionResult Index()
