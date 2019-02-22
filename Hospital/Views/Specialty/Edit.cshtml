@@ -1,0 +1,13 @@
+﻿@model Hospital.ViewModels.SpecialtyViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Изменение";
+}
+<h2>@ViewData["Title"]</h2>
+<div asp-validation-summary="All"></div>
+<form method="POST" asp-controller="Specialty" asp-action="SpecialtyEdit">
+    <div><label>Название специальности</label><br /><input name="Name" value="@Model.Name" /></div>
+    <input type="text" hidden value="@Model.Id" name="Id">
+    <input type="submit" value="Изменить" />
+</form>

@@ -35,3 +35,4 @@ C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Razor\View
 C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Razor\Views\Roles\UserList.g.cshtml.cs
 C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Razor\Views\Specialty\Index.g.cshtml.cs
 C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Razor\Views\Specialty\SpecialtyCreate.g.cshtml.cs
+C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Razor\Views\Specialty\Edit.g.cshtml.cs

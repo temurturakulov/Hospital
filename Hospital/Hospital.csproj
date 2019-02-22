@@ -5,8 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Specialty\create\" />
-    <Folder Include="Views\Specialty\index\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
