@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Hospital.Migrations
 {
-    public partial class Doctor : Migration
+    public partial class Timetable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -92,6 +92,28 @@ namespace Hospital.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Roles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TimeTables",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    UserFName = table.Column<string>(nullable: true),
+                    UserSName = table.Column<string>(nullable: true),
+                    UserLName = table.Column<string>(nullable: true),
+                    UserYear = table.Column<string>(nullable: true),
+                    SpecialtyName = table.Column<string>(nullable: true),
+                    Monday = table.Column<DateTime>(nullable: false),
+                    Tuesday = table.Column<DateTime>(nullable: false),
+                    Thirsday = table.Column<DateTime>(nullable: false),
+                    Wednesday = table.Column<DateTime>(nullable: false),
+                    Friday = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TimeTables", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -265,6 +287,9 @@ namespace Hospital.Migrations
 
             migrationBuilder.DropTable(
                 name: "Roles");
+
+            migrationBuilder.DropTable(
+                name: "TimeTables");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

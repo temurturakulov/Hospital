@@ -21,10 +21,7 @@ namespace Hospital.Controllers
         public async Task<IActionResult> Index()
         {
             var Table = context.TimeTables.ToList();
-            //ViewBag.Specialty = context.DoctorSpecialties.ToList();
-            //var Specialties = context.DoctorSpecialties.ToList();
-             
-            // ViewBag.User = context.Users.ToList();
+            
             return View(Table);
         }
 
@@ -38,9 +35,8 @@ namespace Hospital.Controllers
                 TimeTable table = new TimeTable
                 {
                     Id = model.Id,
-                    
-                    UserId = model.UserId,
-                    SpecialtyId = model.SpecialtyId,
+                    User = model.User,
+                    Specialty=model.Specialty,                   
                     Monday = model.Monday,
                     Tuesday = model.Tuesday,
                     Thirsday = model.Thirsday,
@@ -54,8 +50,8 @@ namespace Hospital.Controllers
             else
             {
                 result.Id = model.Id;
-                result.UserId = model.UserId;
-                result.SpecialtyId = model.SpecialtyId;
+                result.User = model.User;
+                result.Specialty = model.Specialty;                
                 result.Monday = model.Monday;
                 result.Tuesday = model.Tuesday;
                 result.Thirsday = model.Thirsday;

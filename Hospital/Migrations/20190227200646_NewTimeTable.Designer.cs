@@ -4,14 +4,16 @@ using Hospital.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Hospital.Migrations
 {
     [DbContext(typeof(AuthorizationContext))]
-    partial class AuthorizationContextModelSnapshot : ModelSnapshot
+    [Migration("20190227200646_NewTimeTable")]
+    partial class NewTimeTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,21 +72,21 @@ namespace Hospital.Migrations
 
                     b.Property<DateTime>("Monday");
 
-                    b.Property<int?>("SpecialtyId");
+                    b.Property<int?>("SpecialtyIdId");
 
                     b.Property<DateTime>("Thirsday");
 
                     b.Property<DateTime>("Tuesday");
 
-                    b.Property<string>("UserId");
+                    b.Property<string>("UserIdId");
 
                     b.Property<DateTime>("Wednesday");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SpecialtyId");
+                    b.HasIndex("SpecialtyIdId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserIdId");
 
                     b.ToTable("TimeTables");
                 });
@@ -272,13 +274,13 @@ namespace Hospital.Migrations
 
             modelBuilder.Entity("Hospital.Models.TimeTable", b =>
                 {
-                    b.HasOne("Hospital.Models.DoctorSpecialty", "Specialty")
+                    b.HasOne("Hospital.Models.DoctorSpecialty", "SpecialtyId")
                         .WithMany()
-                        .HasForeignKey("SpecialtyId");
+                        .HasForeignKey("SpecialtyIdId");
 
-                    b.HasOne("Hospital.Models.User", "User")
+                    b.HasOne("Hospital.Models.User", "UserId")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserIdId");
                 });
 
             modelBuilder.Entity("Hospital.Models.User", b =>

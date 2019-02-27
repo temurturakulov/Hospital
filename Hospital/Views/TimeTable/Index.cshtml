@@ -1,7 +1,6 @@
 ﻿
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model IEnumerable<Hospital.Models.TimeTable>
-
 @{
     ViewData["Title"] = "Расписание работы";
 }
@@ -21,17 +20,17 @@
         <tr><th>Пятница</th>
     </thead>
 
-    @foreach (var dynamic in ViewBag.Specialty)
-    {
-        <tr>
-            <td>@dynamic.Name</td>
 
-        </tr>
-    }
     @foreach (var table in Model)
     {
         <tr>
-            <td>@table.UserId</td>
+            <td>@table.User.FirstName</td>
+            <td>@table.User.SecondName</td>
+            <td>@table.User.LastName</td>
+        </tr>
+
+        <tr>
+            <td>@table.Specialty.Name</td>
         </tr>
         <tr>
             <td>@table.Monday</td>
@@ -48,5 +47,5 @@
         <tr>
             <td>@table.Friday</td>
         </tr>
-     }       
+    }
 </table> 
