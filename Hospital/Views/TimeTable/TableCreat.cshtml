@@ -1,0 +1,49 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<Hospital.Models.TimeTable>
+@{
+    ViewData["Title"] = "Расписание работы";
+}
+<h2>@ViewData["Title"]</h2>
+
+<p><a asp-action="TableCreat" asp-controller="TimeTableController">Добавить расписание</a></p>
+
+<table class="table">
+    <thead>
+        <tr><th>Специальность</th>
+        <tr><th>ФИО</th>
+        <tr><th>Понедельник</th>
+        <tr><th>Вторник</th>
+        <tr><th>Среда</th>
+        <tr><th>Четверг</th>
+        <tr><th>Пятница</th>
+    </thead>
+
+    @foreach (var dynamic in ViewBag.Specialty)
+    {
+        <tr>
+            <td>@dynamic.Name</td>
+
+        </tr>
+    }
+    @foreach (var table in Model)
+    {
+        <tr>
+            <td>@table.UserId</td>
+        </tr>
+        <tr>
+            <td>@table.Monday</td>
+        </tr>
+        <tr>
+            <td>@table.Tuesday</td>
+        </tr>
+        <tr>
+            <td>@table.Thirsday</td>
+        </tr>
+        <tr>
+            <td>@table.Wednesday</td>
+        </tr>
+        <tr>
+            <td>@table.Friday</td>
+        </tr>
+    }
+</table> 

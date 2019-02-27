@@ -13,6 +13,7 @@ namespace Hospital.Models
         public DbSet<Role> Roles { get; set; }
         public DbSet<DoctorSpecialty> DoctorSpecialties { get; set; }
         public DbSet<Authorization> Authorizations { get; set; }
+        public DbSet<TimeTable> TimeTables { get; set; }
 
         public AuthorizationContext(DbContextOptions<AuthorizationContext> options)
             : base(options)
