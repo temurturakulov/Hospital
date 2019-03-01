@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Hospital.Migrations
 {
-    public partial class Timetable : Migration
+    public partial class NewTableDoctor : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,38 +20,6 @@ namespace Hospital.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetRoles", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetUsers",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    UserName = table.Column<string>(maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
-                    Email = table.Column<string>(maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(nullable: false),
-                    PasswordHash = table.Column<string>(nullable: true),
-                    SecurityStamp = table.Column<string>(nullable: true),
-                    ConcurrencyStamp = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<string>(nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
-                    LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false),
-                    FirstName = table.Column<string>(nullable: true),
-                    SecondName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    Year = table.Column<int>(nullable: false),
-                    RoleId = table.Column<int>(nullable: false),
-                    AuthId = table.Column<int>(nullable: false),
-                    DoctorSpecialtyId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -95,28 +63,6 @@ namespace Hospital.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TimeTables",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    UserFName = table.Column<string>(nullable: true),
-                    UserSName = table.Column<string>(nullable: true),
-                    UserLName = table.Column<string>(nullable: true),
-                    UserYear = table.Column<string>(nullable: true),
-                    SpecialtyName = table.Column<string>(nullable: true),
-                    Monday = table.Column<DateTime>(nullable: false),
-                    Tuesday = table.Column<DateTime>(nullable: false),
-                    Thirsday = table.Column<DateTime>(nullable: false),
-                    Wednesday = table.Column<DateTime>(nullable: false),
-                    Friday = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TimeTables", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -135,6 +81,49 @@ namespace Hospital.Migrations
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUsers",
+                columns: table => new
+                {
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    EmailConfirmed = table.Column<bool>(nullable: false),
+                    LockoutEnabled = table.Column<bool>(nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(nullable: false),
+                    Id = table.Column<string>(nullable: false),
+                    UserName = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
+                    Email = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
+                    PasswordHash = table.Column<string>(nullable: true),
+                    SecurityStamp = table.Column<string>(nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    SecondName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    Year = table.Column<int>(nullable: false),
+                    RoleIdId = table.Column<int>(nullable: true),
+                    AuthIdId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUsers_Authorizations_AuthIdId",
+                        column: x => x.AuthIdId,
+                        principalTable: "Authorizations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_AspNetUsers_Roles_RoleIdId",
+                        column: x => x.RoleIdId,
+                        principalTable: "Roles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -222,6 +211,56 @@ namespace Hospital.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Doctors",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    UserIdId = table.Column<string>(nullable: true),
+                    SpecialtyIdId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Doctors", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Doctors_DoctorSpecialties_SpecialtyIdId",
+                        column: x => x.SpecialtyIdId,
+                        principalTable: "DoctorSpecialties",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Doctors_AspNetUsers_UserIdId",
+                        column: x => x.UserIdId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TimeTables",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    DoctorIdId = table.Column<int>(nullable: true),
+                    Monday = table.Column<DateTime>(nullable: false),
+                    Tuesday = table.Column<DateTime>(nullable: false),
+                    Thirsday = table.Column<DateTime>(nullable: false),
+                    Wednesday = table.Column<DateTime>(nullable: false),
+                    Friday = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TimeTables", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TimeTables_Doctors_DoctorIdId",
+                        column: x => x.DoctorIdId,
+                        principalTable: "Doctors",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -250,6 +289,11 @@ namespace Hospital.Migrations
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AspNetUsers_AuthIdId",
+                table: "AspNetUsers",
+                column: "AuthIdId");
+
+            migrationBuilder.CreateIndex(
                 name: "EmailIndex",
                 table: "AspNetUsers",
                 column: "NormalizedEmail");
@@ -260,6 +304,26 @@ namespace Hospital.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUsers_RoleIdId",
+                table: "AspNetUsers",
+                column: "RoleIdId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Doctors_SpecialtyIdId",
+                table: "Doctors",
+                column: "SpecialtyIdId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Doctors_UserIdId",
+                table: "Doctors",
+                column: "UserIdId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TimeTables_DoctorIdId",
+                table: "TimeTables",
+                column: "DoctorIdId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -280,22 +344,25 @@ namespace Hospital.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Authorizations");
-
-            migrationBuilder.DropTable(
-                name: "DoctorSpecialties");
-
-            migrationBuilder.DropTable(
-                name: "Roles");
-
-            migrationBuilder.DropTable(
                 name: "TimeTables");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "Doctors");
+
+            migrationBuilder.DropTable(
+                name: "DoctorSpecialties");
+
+            migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Authorizations");
+
+            migrationBuilder.DropTable(
+                name: "Roles");
         }
     }
 }

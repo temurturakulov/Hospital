@@ -35,8 +35,7 @@ namespace Hospital.Controllers
                 TimeTable table = new TimeTable
                 {
                     Id = model.Id,
-                    User = model.User,
-                    Specialty=model.Specialty,                   
+                    DoctorId=model.DoctorId,                                      
                     Monday = model.Monday,
                     Tuesday = model.Tuesday,
                     Thirsday = model.Thirsday,
@@ -50,8 +49,7 @@ namespace Hospital.Controllers
             else
             {
                 result.Id = model.Id;
-                result.User = model.User;
-                result.Specialty = model.Specialty;                
+                result.DoctorId = model.DoctorId;                                
                 result.Monday = model.Monday;
                 result.Tuesday = model.Tuesday;
                 result.Thirsday = model.Thirsday;

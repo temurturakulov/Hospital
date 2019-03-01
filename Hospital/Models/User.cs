@@ -15,6 +15,6 @@ namespace Hospital.Models
         public int Year { get; set; }
         public Role RoleId { get; set; }
         public Authorization AuthId { get; set; }
-        public DoctorSpecialty DoctorSpecialtyId { get; set; }
+       // public DoctorSpecialty DoctorSpecialtyId { get; set; }
     }
 }

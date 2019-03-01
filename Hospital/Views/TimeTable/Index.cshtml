@@ -24,13 +24,13 @@
     @foreach (var table in Model)
     {
         <tr>
-            <td>@table.User.FirstName</td>
-            <td>@table.User.SecondName</td>
-            <td>@table.User.LastName</td>
+            <td>@table.DoctorId.UserId.FirstName</td>
+            <td>@table.DoctorId.UserId.SecondName</td>
+            <td>@table.DoctorId.UserId.LastName</td>
         </tr>
 
         <tr>
-            <td>@table.Specialty.Name</td>
+            <td>@table.DoctorId.SpecialtyId.Name</td>
         </tr>
         <tr>
             <td>@table.Monday</td>

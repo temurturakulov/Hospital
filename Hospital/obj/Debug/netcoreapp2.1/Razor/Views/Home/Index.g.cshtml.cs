@@ -81,7 +81,7 @@ namespace AspNetCore
             WriteLiteral("    ");
             EndContext();
             BeginContext(129, 125, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "df1d7a2a149e47d496bafbf199017c16", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b35c4a33078d4272a64757de6482242c", async() => {
                 BeginContext(194, 53, true);
                 WriteLiteral("\r\n        <input type=\"submit\" value=\"Выход\" />\r\n    ");
                 EndContext();
@@ -119,7 +119,7 @@ else
             WriteLiteral("    ");
             EndContext();
             BeginContext(272, 55, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8efeb6f14c084f6f954f631beae0a418", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10190a12f9424913bf92615176105d4c", async() => {
                 BeginContext(319, 4, true);
                 WriteLiteral("Вход");
                 EndContext();
@@ -146,7 +146,7 @@ else
             WriteLiteral("    ");
             EndContext();
             BeginContext(339, 65, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "935314cc1b514d44a3f4476ef608c0e7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5b90a866affa4c269481e374910429eb", async() => {
                 BeginContext(389, 11, true);
                 WriteLiteral("Регистрация");
                 EndContext();

@@ -67,7 +67,7 @@ Write(ViewData["Title"]);
             WriteLiteral("</h2>\r\n\r\n\r\n\r\n");
             EndContext();
             BeginContext(203, 40, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "64e72f14d5d248909cb79a8e59c0b7ad", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "355d09c8c6aa47c39bf9888a690e8587", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper>();
@@ -90,7 +90,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(245, 313, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "946b5c6baa994905ad647d2454b2f7e0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a956e0c80c0a42d5b6662dead039edee", async() => {
                 BeginContext(327, 224, true);
                 WriteLiteral("\r\n    <div>\r\n        <label>Специальность</label><br /><input name=\"model\" />\r\n    </div>\r\n    <div>\r\n        <label>Фамилия</label><br /><input name=\"model\" />\r\n    </div>\r\n\r\n\r\n    <input type=\"submit\" value=\"Добавить\" />\r\n");
                 EndContext();

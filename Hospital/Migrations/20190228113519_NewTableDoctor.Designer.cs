@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hospital.Migrations
 {
     [DbContext(typeof(AuthorizationContext))]
-    [Migration("20190227194542_Timetable")]
-    partial class Timetable
+    [Migration("20190228113519_NewTableDoctor")]
+    partial class NewTableDoctor
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,6 +34,25 @@ namespace Hospital.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Authorizations");
+                });
+
+            modelBuilder.Entity("Hospital.Models.Doctor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("SpecialtyIdId");
+
+                    b.Property<string>("UserIdId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SpecialtyIdId");
+
+                    b.HasIndex("UserIdId");
+
+                    b.ToTable("Doctors");
                 });
 
             modelBuilder.Entity("Hospital.Models.DoctorSpecialty", b =>
@@ -68,27 +87,21 @@ namespace Hospital.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("DoctorIdId");
+
                     b.Property<DateTime>("Friday");
 
                     b.Property<DateTime>("Monday");
-
-                    b.Property<string>("SpecialtyName");
 
                     b.Property<DateTime>("Thirsday");
 
                     b.Property<DateTime>("Tuesday");
 
-                    b.Property<string>("UserFName");
-
-                    b.Property<string>("UserLName");
-
-                    b.Property<string>("UserSName");
-
-                    b.Property<string>("UserYear");
-
                     b.Property<DateTime>("Wednesday");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DoctorIdId");
 
                     b.ToTable("TimeTables");
                 });
@@ -100,12 +113,10 @@ namespace Hospital.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
-                    b.Property<int>("AuthId");
+                    b.Property<int?>("AuthIdId");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
-
-                    b.Property<int?>("DoctorSpecialtyId");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);
@@ -132,7 +143,7 @@ namespace Hospital.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
-                    b.Property<int>("RoleId");
+                    b.Property<int?>("RoleIdId");
 
                     b.Property<string>("SecondName");
 
@@ -147,6 +158,8 @@ namespace Hospital.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AuthIdId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
 
@@ -154,6 +167,8 @@ namespace Hospital.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("RoleIdId");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -266,6 +281,35 @@ namespace Hospital.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Hospital.Models.Doctor", b =>
+                {
+                    b.HasOne("Hospital.Models.DoctorSpecialty", "SpecialtyId")
+                        .WithMany()
+                        .HasForeignKey("SpecialtyIdId");
+
+                    b.HasOne("Hospital.Models.User", "UserId")
+                        .WithMany()
+                        .HasForeignKey("UserIdId");
+                });
+
+            modelBuilder.Entity("Hospital.Models.TimeTable", b =>
+                {
+                    b.HasOne("Hospital.Models.Doctor", "DoctorId")
+                        .WithMany()
+                        .HasForeignKey("DoctorIdId");
+                });
+
+            modelBuilder.Entity("Hospital.Models.User", b =>
+                {
+                    b.HasOne("Hospital.Models.Authorization", "AuthId")
+                        .WithMany()
+                        .HasForeignKey("AuthIdId");
+
+                    b.HasOne("Hospital.Models.Role", "RoleId")
+                        .WithMany()
+                        .HasForeignKey("RoleIdId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

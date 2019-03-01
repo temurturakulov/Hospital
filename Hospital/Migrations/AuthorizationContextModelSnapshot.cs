@@ -34,6 +34,25 @@ namespace Hospital.Migrations
                     b.ToTable("Authorizations");
                 });
 
+            modelBuilder.Entity("Hospital.Models.Doctor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("SpecialtyIdId");
+
+                    b.Property<string>("UserIdId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SpecialtyIdId");
+
+                    b.HasIndex("UserIdId");
+
+                    b.ToTable("Doctors");
+                });
+
             modelBuilder.Entity("Hospital.Models.DoctorSpecialty", b =>
                 {
                     b.Property<int>("Id")
@@ -66,25 +85,21 @@ namespace Hospital.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("DoctorIdId");
+
                     b.Property<DateTime>("Friday");
 
                     b.Property<DateTime>("Monday");
-
-                    b.Property<int?>("SpecialtyId");
 
                     b.Property<DateTime>("Thirsday");
 
                     b.Property<DateTime>("Tuesday");
 
-                    b.Property<string>("UserId");
-
                     b.Property<DateTime>("Wednesday");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SpecialtyId");
-
-                    b.HasIndex("UserId");
+                    b.HasIndex("DoctorIdId");
 
                     b.ToTable("TimeTables");
                 });
@@ -100,8 +115,6 @@ namespace Hospital.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
-
-                    b.Property<int?>("DoctorSpecialtyIdId");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);
@@ -144,8 +157,6 @@ namespace Hospital.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AuthIdId");
-
-                    b.HasIndex("DoctorSpecialtyIdId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
@@ -270,15 +281,22 @@ namespace Hospital.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Hospital.Models.Doctor", b =>
+                {
+                    b.HasOne("Hospital.Models.DoctorSpecialty", "SpecialtyId")
+                        .WithMany()
+                        .HasForeignKey("SpecialtyIdId");
+
+                    b.HasOne("Hospital.Models.User", "UserId")
+                        .WithMany()
+                        .HasForeignKey("UserIdId");
+                });
+
             modelBuilder.Entity("Hospital.Models.TimeTable", b =>
                 {
-                    b.HasOne("Hospital.Models.DoctorSpecialty", "Specialty")
+                    b.HasOne("Hospital.Models.Doctor", "DoctorId")
                         .WithMany()
-                        .HasForeignKey("SpecialtyId");
-
-                    b.HasOne("Hospital.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("DoctorIdId");
                 });
 
             modelBuilder.Entity("Hospital.Models.User", b =>
@@ -286,10 +304,6 @@ namespace Hospital.Migrations
                     b.HasOne("Hospital.Models.Authorization", "AuthId")
                         .WithMany()
                         .HasForeignKey("AuthIdId");
-
-                    b.HasOne("Hospital.Models.DoctorSpecialty", "DoctorSpecialtyId")
-                        .WithMany()
-                        .HasForeignKey("DoctorSpecialtyIdId");
 
                     b.HasOne("Hospital.Models.Role", "RoleId")
                         .WithMany()
