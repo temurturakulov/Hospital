@@ -25,6 +25,14 @@ namespace Hospital.Controllers
             return View(Table);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> TableCreate(Doctor Id)
+        {
+            var times = context.TimeTables.ToList();
+
+            return View(Id);
+        }
+
         [HttpPost]
         public async Task<IActionResult> TableCreate(TimeTableViewModel model)
         {
@@ -56,7 +64,7 @@ namespace Hospital.Controllers
                 result.Wednesday = model.Wednesday;
                 result.Friday = model.Friday;
             }
-               return RedirectToAction("TableCreate", "TimeTableController");
+               return RedirectToAction("Index", "TimeTable");
         }
     }
 }
