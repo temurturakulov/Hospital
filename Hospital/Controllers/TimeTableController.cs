@@ -1,5 +1,6 @@
 ﻿using Hospital.Models;
 using Hospital.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Hospital.Controllers
 {
+    
     public class TimeTableController : Controller
     {
         private readonly AuthorizationContext context;
@@ -24,7 +26,7 @@ namespace Hospital.Controllers
             
             return View(Table);
         }
-
+        [Authorize(Roles = "Admin, Doctor ")]
         [HttpGet]
         public async Task<IActionResult> TableCreate(Doctor Id)
         {
@@ -32,7 +34,7 @@ namespace Hospital.Controllers
 
             return View(Id);
         }
-
+        
         [HttpPost]
         public async Task<IActionResult> TableCreate(TimeTableViewModel model)
         {

@@ -70,7 +70,7 @@ Write(ViewData["Title"]);
             WriteLiteral("</h2>\r\n\r\n<p>");
             EndContext();
             BeginContext(198, 83, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eb780e3e3de242f797b4d817828a9d32", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b6f62afce72e42d1baa4a50ae751aa4f", async() => {
                 BeginContext(257, 20, true);
                 WriteLiteral("Добавить специалиста");
                 EndContext();
@@ -115,7 +115,7 @@ Write(ViewData["Title"]);
             WriteLiteral("</td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(513, 274, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a9ab32b85fe540cab0eef24710c646ff", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1bebdd1991db4fa5abdb02d8c7ae2958", async() => {
                 BeginContext(589, 47, true);
                 WriteLiteral("\r\n                    <input type=\"text\" hidden");
                 EndContext();
@@ -153,7 +153,7 @@ WriteAttributeValue("", 644, specialty.Id, 644, 13, false);
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(842, 270, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8956e748ec94437f9214bfd632f99de0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d94952d6608e4ceab32325251ab74bab", async() => {
                 BeginContext(915, 47, true);
                 WriteLiteral("\r\n                    <input type=\"text\" hidden");
                 EndContext();
