@@ -1,4 +1,4 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model IEnumerable<Hospital.Models.TimeTable>
 @{
@@ -14,13 +14,22 @@
     <form method="get" asp-action="TableCreate" asp-controller="TimeTable">
         @foreach (var table in Model)
         {
-        <td>@table.DoctorId.UserId.UserName</td> 
+            <td>@table.DoctorId.UserId.UserName</td>
         }
-            
+
     </form>
 
 }
 
+@User.Identity.Name
+@User.IsInRole("Admin")
+
+@User.IsInRole("User")
+@User.IsInRole("Doctor")
+
+@Context.User.IsInRole("Admin");
+@Context.User.IsInRole("User");
+@Context.User.IsInRole("Doctor");
 
 <table class="table" align="center" border="1" cellpadding="4">
     <thead>

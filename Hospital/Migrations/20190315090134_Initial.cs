@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Hospital.Migrations
 {
-    public partial class NewTableDoctor : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -87,26 +87,25 @@ namespace Hospital.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    AccessFailedCount = table.Column<int>(nullable: false),
-                    EmailConfirmed = table.Column<bool>(nullable: false),
-                    LockoutEnabled = table.Column<bool>(nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(nullable: false),
                     Id = table.Column<string>(nullable: false),
                     UserName = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
                     Email = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(nullable: false),
                     PasswordHash = table.Column<string>(nullable: true),
                     SecurityStamp = table.Column<string>(nullable: true),
                     ConcurrencyStamp = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
+                    LockoutEnabled = table.Column<bool>(nullable: false),
+                    AccessFailedCount = table.Column<int>(nullable: false),
                     FirstName = table.Column<string>(nullable: true),
                     SecondName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     Year = table.Column<int>(nullable: false),
-                    RoleIdId = table.Column<int>(nullable: true),
                     AuthIdId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -116,12 +115,6 @@ namespace Hospital.Migrations
                         name: "FK_AspNetUsers_Authorizations_AuthIdId",
                         column: x => x.AuthIdId,
                         principalTable: "Authorizations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AspNetUsers_Roles_RoleIdId",
-                        column: x => x.RoleIdId,
-                        principalTable: "Roles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -306,11 +299,6 @@ namespace Hospital.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_RoleIdId",
-                table: "AspNetUsers",
-                column: "RoleIdId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Doctors_SpecialtyIdId",
                 table: "Doctors",
                 column: "SpecialtyIdId");
@@ -344,6 +332,9 @@ namespace Hospital.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Roles");
+
+            migrationBuilder.DropTable(
                 name: "TimeTables");
 
             migrationBuilder.DropTable(
@@ -360,9 +351,6 @@ namespace Hospital.Migrations
 
             migrationBuilder.DropTable(
                 name: "Authorizations");
-
-            migrationBuilder.DropTable(
-                name: "Roles");
         }
     }
 }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hospital.Migrations
 {
     [DbContext(typeof(AuthorizationContext))]
-    [Migration("20190228113519_NewTableDoctor")]
-    partial class NewTableDoctor
+    [Migration("20190315090134_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -143,8 +143,6 @@ namespace Hospital.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
-                    b.Property<int?>("RoleIdId");
-
                     b.Property<string>("SecondName");
 
                     b.Property<string>("SecurityStamp");
@@ -167,8 +165,6 @@ namespace Hospital.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.HasIndex("RoleIdId");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -306,10 +302,6 @@ namespace Hospital.Migrations
                     b.HasOne("Hospital.Models.Authorization", "AuthId")
                         .WithMany()
                         .HasForeignKey("AuthIdId");
-
-                    b.HasOne("Hospital.Models.Role", "RoleId")
-                        .WithMany()
-                        .HasForeignKey("RoleIdId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
