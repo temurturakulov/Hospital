@@ -26,10 +26,7 @@ namespace Hospital
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddTransient<IPasswordValidator<User>,
-            //        CustomPasswordValidator>(serv => new CustomPasswordValidator(6));
-
-            services.AddDbContext < AuthorizationContext>(options =>
+                services.AddDbContext < AuthorizationContext>(options =>
 
                   options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))) ;
 
@@ -42,8 +39,11 @@ namespace Hospital
                 opts.Password.RequireLowercase = false;// требуются ли символы в нижнем регистре
                 opts.Password.RequireDigit = true;// требуются ли цифры
             })
+            .AddRoleManager<RoleManager<IdentityRole>>()
             .AddEntityFrameworkStores<AuthorizationContext>()
-    .AddDefaultTokenProviders();
+            .AddDefaultUI()
+            .AddDefaultTokenProviders();
+            
 
 
 
@@ -61,6 +61,7 @@ namespace Hospital
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();

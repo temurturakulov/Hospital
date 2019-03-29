@@ -43,9 +43,9 @@
             {
                 <p>@User.Identity.Name</p>
 
-                @*<form >*@
+                <form method="post" asp-action="LogOff" asp-controller="Account">
                 <input type="submit" value="Выход" />
-                @*</form>*@
+                </form>
             }
             else
 

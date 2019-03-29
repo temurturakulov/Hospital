@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using System.Security.Claims;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model IEnumerable<Hospital.Models.TimeTable>
 @{
@@ -22,14 +23,11 @@
 }
 
 @User.Identity.Name
-@User.IsInRole("Admin")
+@User.IsInRole("Admin");
+@User.HasClaim(ClaimTypes.Role, "Admin");
+@User.IsInRole("User");
+@User.IsInRole("Doctor");
 
-@User.IsInRole("User")
-@User.IsInRole("Doctor")
-
-@Context.User.IsInRole("Admin");
-@Context.User.IsInRole("User");
-@Context.User.IsInRole("Doctor");
 
 <table class="table" align="center" border="1" cellpadding="4">
     <thead>

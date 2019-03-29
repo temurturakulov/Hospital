@@ -66,19 +66,6 @@ namespace Hospital.Migrations
                     b.ToTable("DoctorSpecialties");
                 });
 
-            modelBuilder.Entity("Hospital.Models.Role", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("RoleName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Roles");
-                });
-
             modelBuilder.Entity("Hospital.Models.TimeTable", b =>
                 {
                     b.Property<int>("Id")
