@@ -28,11 +28,18 @@ namespace Hospital.Controllers
         }
         [Authorize(Roles = "Admin, Doctor ")]
         [HttpGet]
-        public async Task<IActionResult> TableCreate(Doctor Id)
+        public async Task<IActionResult> TableCreate(User Id)
         {
+            Doctor doctor = new Doctor();
+            doctor.UserId = Id;
+            if (context.Doctors.Any())
+            {
+                doctor.SpecialtyId = context.Doctors?.Where(x => x.UserId.Id == Id.Id)?.First().SpecialtyId;
+            }
+
             var times = context.TimeTables.ToList();
 
-            return View(Id);
+            return View(doctor);
         }
         
         [HttpPost]
