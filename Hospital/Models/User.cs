@@ -12,9 +12,7 @@ namespace Hospital.Models
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public string LastName { get; set; }
-        public int Year { get; set; }
-       // public Role RoleId { get; set; }
+        public int Year { get; set; }       
         public Authorization AuthId { get; set; }
-       // public DoctorSpecialty DoctorSpecialtyId { get; set; }
     }
 }

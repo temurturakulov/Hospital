@@ -1,6 +1,8 @@
-﻿@model IEnumerable<Hospital.Models.User>
+﻿
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<Hospital.Models.User>
 @{
-    ViewBag.Title = "Список пользователей";
+    ViewData["Title"] = " Добавление доктора";
 }
 
 <head>
@@ -21,7 +23,6 @@
                     <a class="nav-link" asp-controller="TimeTable" asp-action="Index">Расписание врачей<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-
                     <a class="nav-link" asp-controller="Roles" asp-action="Index">Роли</a>
                 </li>
                 <li class="nav-item active">
@@ -29,11 +30,9 @@
                     <a class="nav-link" asp-controller="Specialty" asp-action="Index">Специальности врача</a>
                 </li>
                 <li class="nav-item active">
-
                     <a class="nav-link" asp-controller="Users" asp-action="Index">Пользователи</a>
                 </li>
                 <li class="nav-item active">
-
                     <a class="nav-link" asp-controller="Doctor" asp-action="Index">Доктора</a>
                 </li>
                 <li class="nav-item dropdown">
@@ -49,41 +48,43 @@
 
         </div>
     </nav>
-
-    
-
-    <table class="table table-borderless">
-        <thead >
+    <h2>@ViewData["Title"]</h2>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <form asp-controller="Doctor" asp-action="Create" method="post">              
+        
+        <table class="table" cellpadding="0" border="1">
             <tr>
-                <th>Email</th>
+                <th>IdDoctor</th>
                 <th>Имя</th>
                 <th>Фамилия</th>
                 <th>Отчество</th>
-                <th>Год</th>
-                <th><a asp-action="Create">Добавить пользователя</a></th>
-
+                <th>Специальность</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
             </tr>
-        </thead>  
-        <thead>
-            @foreach (var user in Model)
-            {
-                <tr>
-                    <td>@user.Email</td>
-                    <td>@user.FirstName</td>
-                    <td>@user.SecondName</td>
-                    <td>@user.LastName</td>
-                    <td>@user.Year</td>
-                    <td>
-                        <form asp-action="Delete" asp-route-id="@user.Id" method="post">
-                            <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@user.Id">Изменить</a>
-                            <a class="btn btn-sm btn-primary" asp-action="ChangePassword" asp-route-id="@user.Id">Сменить пароль</a>
-                            <button type="submit" class="btn btn-sm btn-danger">
-                                Удалить
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            }
-        </thead>      
-    </table>
+             @foreach (var doc in Model)
+                {
+                    <tr>
+                        <td>
+                            <label hidden>@doc.Id</label>
+                        </td>
+                        <td>@doc.FirstName</td>
+                        <td> @doc.SecondName</td>
+                        <td>@doc.LastName</td>
+                        <td>
+                            <select>
+                                @foreach (var speciality in ViewBag.DoctorSpecialty)
+                                {
+                                    <option value="@speciality.Id">@speciality.Name</option>
+                                }
+                            </select>
+                        </td>
+                        <td>
+                            <input type="submit" value="Добавить" />
+                        </td>
+                    </tr>
+                }
+        </table>
+    </form>
+
+    
 </body>

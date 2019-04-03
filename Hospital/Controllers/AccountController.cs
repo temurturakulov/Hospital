@@ -30,9 +30,15 @@ namespace Hospital.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email, Year = model.Year };
-                //добавляем пользователя
+                User user = new User {
+                    Email = model.Email,
+                    FirstName =model.FirstName,
+                    SecondName =model.SecondName,
+                    LastName =model.LastName,
+                    UserName = model.Email,
+                    Year = model.Year };
 
+                //добавляем пользователя
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

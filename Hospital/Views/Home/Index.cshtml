@@ -23,12 +23,13 @@
                     <a class="nav-link" asp-controller="Roles" asp-action="Index">Роли</a>
                 </li>
                 <li class="nav-item active">
-
                     <a class="nav-link" asp-controller="Specialty" asp-action="Index">Специальности врача</a>
                 </li>
                 <li class="nav-item active">
-
                     <a class="nav-link" asp-controller="Users" asp-action="Index">Пользователи</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" asp-controller="Doctor" asp-action="Index">Доктора</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -40,34 +41,29 @@
                     </div>
                 </li>
             </ul>
-            @*<form class="form-inline my-2 my-lg-0" >
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
 
+        </div>
 
-            </form>*@
+    </nav>
+    <div  class="d-flex align-items-end flex-column" style="height: 200px;">
+        <div class="p-2">
             @if (User.Identity.IsAuthenticated)
             {
                 <p>@User.Identity.Name</p>
-
                 <form method="post" asp-action="LogOff" asp-controller="Account">
-                <input type="submit" value="Выход" />
+                    <input class="btn btn-primary" type="button" value="Выход" />
                 </form>
             }
             else
-
-            { 
-                <form class="form-inline" method="post" asp-controller="Account" asp-action="LogOff">
+            {
+                <form method="post" asp-controller="Account" asp-action="LogOff">
                     @*<button class="btn btn-outline-success" type="button" >Main button</button>*@
-                    <a asp-controller="Account" asp-action="Login">Вход</a>
-
-                    <a asp-controller="Account" asp-action="Register">Регистрация</a>
-
+                    <a class="btn btn-primary" role="button" asp-controller="Account" asp-action="Login">Вход</a>
+                    <a class="btn btn-primary" role="button" asp-controller="Account" asp-action="Register">Регистрация</a>
                 </form>
-                
-            
             }
         </div>
-    </nav>
+        
+    </div>
 </body>
     

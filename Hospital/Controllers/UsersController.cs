@@ -28,7 +28,14 @@ namespace Hospital.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email, Year = model.Year };
+                User user = new User {
+                    Email = model.Email,
+                    FirstName =model.FirstName,
+                    SecondName =model.SecondName,
+                    LastName =model.LastName,
+                    UserName = model.Email,
+                    Year = model.Year };
+
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -41,8 +48,6 @@ namespace Hospital.Controllers
                         ModelState.AddModelError(string.Empty, error.Description);
                     }
                 }
-
-
             }
             return View(model);
         }
@@ -54,10 +59,15 @@ namespace Hospital.Controllers
             {
                 return NotFound();
             }
-            EditUserViewModel model = new EditUserViewModel { Id = user.Id, Email = user.Email, Year = user.Year };
+            EditUserViewModel model = new EditUserViewModel {
+                Id = user.Id,
+                FirstName=user.FirstName,
+                SecondName=user.SecondName,
+                LastName=user.LastName,
+                Email = user.Email,
+                Year = user.Year };
+
             return View(model);
-
-
         }
 
         [HttpPost]
@@ -69,6 +79,9 @@ namespace Hospital.Controllers
                 if (user != null)
                 {
                     user.Email = model.Email;
+                    user.FirstName = model.FirstName;
+                    user.SecondName = model.SecondName;
+                    user.LastName = model.LastName;
                     user.UserName = model.Email;
                     user.Year = model.Year;
 
@@ -84,12 +97,9 @@ namespace Hospital.Controllers
                             ModelState.AddModelError(string.Empty, error.Description);
                         }
                     }
-
                 }
             }
             return View(model);
-
-
         }
 
         [HttpPost]
@@ -143,8 +153,6 @@ namespace Hospital.Controllers
                             ModelState.AddModelError(string.Empty, error.Description);
                         }
                     }
-
-
                 }
                 else
                 {

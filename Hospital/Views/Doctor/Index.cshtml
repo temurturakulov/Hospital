@@ -1,8 +1,10 @@
-﻿@model IEnumerable<Hospital.Models.User>
+﻿@using Microsoft.AspNetCore.Identity
+@using System.Security.Claims;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<Hospital.Models.Doctor>
 @{
-    ViewBag.Title = "Список пользователей";
+    ViewData["Title"] = "Доктора";
 }
-
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -49,41 +51,13 @@
 
         </div>
     </nav>
+    <h2>@ViewData["Title"]</h2>
+    @if (User.IsInRole("Admin") || User.IsInRole("Doctor"))
+    {
+        <p><a asp-action="Create" asp-controller="Doctor">Добавить доктора</a></p>
+        @foreach(var specialty in Model)
+        {
 
-    
-
-    <table class="table table-borderless">
-        <thead >
-            <tr>
-                <th>Email</th>
-                <th>Имя</th>
-                <th>Фамилия</th>
-                <th>Отчество</th>
-                <th>Год</th>
-                <th><a asp-action="Create">Добавить пользователя</a></th>
-
-            </tr>
-        </thead>  
-        <thead>
-            @foreach (var user in Model)
-            {
-                <tr>
-                    <td>@user.Email</td>
-                    <td>@user.FirstName</td>
-                    <td>@user.SecondName</td>
-                    <td>@user.LastName</td>
-                    <td>@user.Year</td>
-                    <td>
-                        <form asp-action="Delete" asp-route-id="@user.Id" method="post">
-                            <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@user.Id">Изменить</a>
-                            <a class="btn btn-sm btn-primary" asp-action="ChangePassword" asp-route-id="@user.Id">Сменить пароль</a>
-                            <button type="submit" class="btn btn-sm btn-danger">
-                                Удалить
-                            </button>
-                        </form>
-                    </td>
-                </tr>
-            }
-        </thead>      
-    </table>
+        }
+    }
 </body>

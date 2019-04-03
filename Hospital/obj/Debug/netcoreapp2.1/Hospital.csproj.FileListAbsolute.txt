@@ -39,3 +39,5 @@ C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Razor\View
 C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Razor\Views\TimeTable\Index.g.cshtml.cs
 C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Razor\Views\TimeTable\Edit.g.cshtml.cs
 C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Razor\Views\TimeTable\TableCreate.g.cshtml.cs
+C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Razor\Views\Doctor\Index.g.cshtml.cs
+C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Razor\Views\Doctor\Create.g.cshtml.cs
