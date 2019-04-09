@@ -60,7 +60,7 @@ using Microsoft.AspNetCore.Identity;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             BeginContext(140, 436, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18f45183234740de930cb73c490d3a1c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bb1a041107fb45e2baca8faa80cfd066", async() => {
                 BeginContext(146, 423, true);
                 WriteLiteral(@"
     <link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"" integrity=""sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"" crossorigin=""anonymous"">
@@ -84,12 +84,12 @@ using Microsoft.AspNetCore.Identity;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(578, 2721, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "590ea718420344d9bf28d6156b53c3c8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a42d8b7f452c44aa94c14dbb743b34fc", async() => {
                 BeginContext(584, 73, true);
                 WriteLiteral("\r\n    <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n        ");
                 EndContext();
                 BeginContext(657, 76, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0593c072e5fd423086c41c6da7701577", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ddad3ebb5632446593150b6d1041d6e6", async() => {
                     BeginContext(722, 7, true);
                     WriteLiteral("Главная");
                     EndContext();
@@ -122,7 +122,7 @@ using Microsoft.AspNetCore.Identity;
                     ");
                 EndContext();
                 BeginContext(1161, 125, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "389a7baf41cd4393a97f16157cb3c939", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "839f34f5300b4fc9ba79a29c80e770d6", async() => {
                     BeginContext(1227, 55, true);
                     WriteLiteral("Расписание врачей<span class=\"sr-only\">(current)</span>");
                     EndContext();
@@ -147,7 +147,7 @@ using Microsoft.AspNetCore.Identity;
                 WriteLiteral("\r\n                </li>\r\n                <li class=\"nav-item active\">\r\n\r\n                    ");
                 EndContext();
                 BeginContext(1379, 70, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c12cda6448fe4c1ea0bfc0b4f4ef2e95", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cff55e5d76149b1a4d527674a8487b8", async() => {
                     BeginContext(1441, 4, true);
                     WriteLiteral("Роли");
                     EndContext();
@@ -172,7 +172,7 @@ using Microsoft.AspNetCore.Identity;
                 WriteLiteral("\r\n                </li>\r\n                <li class=\"nav-item active\">\r\n\r\n                    ");
                 EndContext();
                 BeginContext(1542, 89, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d683849a9f084ae3aea846b9d8705c0e", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "77ce42a186b44dac86324d84b814b4f8", async() => {
                     BeginContext(1608, 19, true);
                     WriteLiteral("Специальности врача");
                     EndContext();
@@ -197,7 +197,7 @@ using Microsoft.AspNetCore.Identity;
                 WriteLiteral("\r\n                </li>\r\n                <li class=\"nav-item active\">\r\n\r\n                    ");
                 EndContext();
                 BeginContext(1724, 78, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d8d9d51a5c91475c8d4f0e4cfd95036c", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "644c65d27b8047c5ac3a9ef64b805ff1", async() => {
                     BeginContext(1786, 12, true);
                     WriteLiteral("Пользователи");
                     EndContext();
@@ -222,7 +222,7 @@ using Microsoft.AspNetCore.Identity;
                 WriteLiteral("\r\n                </li>\r\n                <li class=\"nav-item active\">\r\n\r\n                    ");
                 EndContext();
                 BeginContext(1895, 74, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "126a5e41f99c48f9ac46e77a4ac00d23", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "66c4fb647a314b1ba6eb0a7f97f945b7", async() => {
                     BeginContext(1958, 7, true);
                     WriteLiteral("Доктора");
                     EndContext();
@@ -272,7 +272,7 @@ using Microsoft.AspNetCore.Identity;
                 WriteLiteral("</h2>\r\n\r\n    ");
                 EndContext();
                 BeginContext(2768, 522, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f28d95f20f944444b960ef8819f28c5b", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8a79162089e740ed9c70b141c8b8d4b1", async() => {
                     BeginContext(2806, 44, true);
                     WriteLiteral("\r\n        <input type=\"hidden\" name=\"userId\"");
                     EndContext();

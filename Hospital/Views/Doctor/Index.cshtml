@@ -16,8 +16,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="navbar1">
+                <div class="collapse navbar-collapse" id="navbar1">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" asp-controller="TimeTable" asp-action="Index">Расписание врачей<span class="sr-only">(current)</span></a>
@@ -48,16 +47,35 @@
                     </div>
                 </li>
             </ul>
-
         </div>
     </nav>
     <h2>@ViewData["Title"]</h2>
     @if (User.IsInRole("Admin") || User.IsInRole("Doctor"))
     {
         <p><a asp-action="Create" asp-controller="Doctor">Добавить доктора</a></p>
-        @foreach(var specialty in Model)
-        {
 
-        }
+        <table class="table" cellpadding="0" border="1">
+            <tr>
+                <th>IdDoctor</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Отчество</th>
+                <th>Специальность</th>                
+            </tr>
+            @foreach (var doc in Model)
+            {
+                <tr>
+                    <form asp-controller="Doctor" asp-action="Create" method="post">
+                        <td>
+                            <label name="userId" hidden>@doc</label>
+                        </td>
+                        <td>@doc.UserId.FirstName</td>
+                        <td> @doc.UserId.SecondName</td>
+                        <td>@doc.UserId.LastName</td>
+                        <td>@doc.SpecialtyId.Name</td>
+                    </form>
+                </tr>
+            }
+        </table>       
     }
 </body>

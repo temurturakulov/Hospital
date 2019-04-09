@@ -36,7 +36,6 @@ namespace Hospital.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-
             var roleId = context.Roles.Where(x=> x.Name=="Doctor").First().Id;
             var doctors = (from c in context.UserRoles
                           from b in context.Users
@@ -50,19 +49,26 @@ namespace Hospital.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(DoctorSpecialty doctorSpecialty, User userId)
+        public async Task<IActionResult> Create(int? doctorSpecialty, User userId)
         {
+            var roleId = context.Roles.Where(x => x.Name == "Doctor").First().Id;
+            var doctors = (from c in context.UserRoles
+                           from b in context.Users
+                           where c.RoleId == roleId
+                           && c.UserId == b.Id
+                           select b).ToList();
+
             if (doctorSpecialty != null && userId != null)
             {
+                var specialty = context.DoctorSpecialties.Where(x => x.Id == doctorSpecialty).First();
+
                 await context.Doctors.AddAsync(new Doctor()
                 {
                     UserId = userId,
-                    SpecialtyId = doctorSpecialty
+                    SpecialtyId = specialty
                 });
             }
-            
-
-            return View();
+            return RedirectToAction("Create");
         }
     }
 }
