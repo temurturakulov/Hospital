@@ -11,7 +11,7 @@ namespace Hospital.ViewModels
         public int Id { get; set; }
         // public User User { get; set; }
         //public DoctorSpecialty Specialty { get; set; }
-        public Doctor DoctorId { get; set; }
+        public DoctorsViewModel Doctors { get; set; }
         public DateTime Monday { get; set; }
         public DateTime Tuesday { get; set; }
         public DateTime Thirsday { get; set; }

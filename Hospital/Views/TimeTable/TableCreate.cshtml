@@ -1,6 +1,6 @@
 ﻿
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model Hospital.Models.Doctor
+@model Hospital.ViewModels.DoctorsViewModel
 @{
     ViewData["Title"] = " Заполнение расписания работы";
 }
@@ -56,16 +56,16 @@
     <form method="POST" asp-controller="TimeTable" asp-action="TableCreate">
 
         <div>
-            <label>Специальность</label><br /><input type="text" value="@Model.SpecialtyId.Name" />
+            <label>Специальность</label><br /><input type="text" value="@Model.Specialty.Name" />
         </div>
         <div>
-            <label>Фамилия</label><br /><input type="text" value="@Model.UserId.FirstName" />
+            <label>Фамилия</label><br /><input type="text" value="@Model.User.FirstName" />
         </div>
         <div>
-            <label>Имя</label><br /><input type="text" value="@Model.UserId.SecondName" />
+            <label>Имя</label><br /><input type="text" value="@Model.User.SecondName" />
         </div>
         <div>
-            <label>Отчество</label><br /><input type="text" value="@Model.UserId.LastName" />
+            <label>Отчество</label><br /><input type="text" value="@Model.User.LastName" />
         </div>
         <input name="DoctorId" hidden />
         <div>

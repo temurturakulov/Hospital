@@ -8,7 +8,7 @@ namespace Hospital.Models
     public class Doctor
     {
         public int Id { get; set; }
-        public User UserId { get; set; }
-        public DoctorSpecialty SpecialtyId { get; set; }
+        public string UserId { get; set; }
+        public int? SpecialtyId { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using System.Security.Claims;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model IEnumerable<Hospital.Models.Doctor>
+@model IEnumerable<Hospital.ViewModels.DoctorsViewModel>
 @{
     ViewData["Title"] = "Доктора";
 }
@@ -69,10 +69,10 @@
                         <td>
                             <label name="userId" hidden>@doc</label>
                         </td>
-                        <td>@doc.UserId.FirstName</td>
-                        <td> @doc.UserId.SecondName</td>
-                        <td>@doc.UserId.LastName</td>
-                        <td>@doc.SpecialtyId.Name</td>
+                        <td>@doc.User?.FirstName</td>
+                        <td> @doc.User?.SecondName</td>
+                        <td>@doc.User?.LastName</td>
+                        <td>@doc.Specialty?.Name</td>
                     </form>
                 </tr>
             }

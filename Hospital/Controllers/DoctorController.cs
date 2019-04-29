@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Hospital.Models;
+using Hospital.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,8 +30,21 @@ namespace Hospital.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var doctor = context.Doctors.ToList();
-            return View(doctor);
+            var doctors = context.Doctors.ToList();
+            List<DoctorsViewModel> doctorsViewModels = new List<DoctorsViewModel>();
+
+            foreach(var item in doctors)
+            {
+                doctorsViewModels.Add(
+                    new DoctorsViewModel() {
+                        Specialty= context.DoctorSpecialties.Where(x=>x.Id== item.SpecialtyId).First(),
+                        User = context.Users.Where(x=> x.Id == item.UserId).First()
+
+                    });
+            }
+            
+            
+            return View(doctorsViewModels);
         }
 
         [HttpGet]
@@ -49,7 +63,7 @@ namespace Hospital.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(int? doctorSpecialty, User userId)
+        public async Task<IActionResult> Create(int? doctorSpecialty, string userId)
         {
             var roleId = context.Roles.Where(x => x.Name == "Doctor").First().Id;
             var doctors = (from c in context.UserRoles
@@ -57,16 +71,19 @@ namespace Hospital.Controllers
                            where c.RoleId == roleId
                            && c.UserId == b.Id
                            select b).ToList();
+            
 
             if (doctorSpecialty != null && userId != null)
             {
+                var user = context.Users.Where(x => x.Id == userId).First();
                 var specialty = context.DoctorSpecialties.Where(x => x.Id == doctorSpecialty).First();
 
                 await context.Doctors.AddAsync(new Doctor()
                 {
-                    UserId = userId,
-                    SpecialtyId = specialty
+                    UserId = user.Id,
+                    SpecialtyId = specialty.Id
                 });
+                await context.SaveChangesAsync();
             }
             return RedirectToAction("Create");
         }

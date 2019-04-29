@@ -22,24 +22,46 @@ namespace Hospital.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var Table = context.TimeTables.ToList();
-            
-            return View(Table);
+            var table = context.TimeTables.ToList();
+            List<TimeTableViewModel> timeTableViewModels = new List<TimeTableViewModel>();
+            foreach (var item in table)
+            {
+                DoctorsViewModel doctorsView = new DoctorsViewModel() {
+                    Id = item.DoctorId.Id,
+                    User = context.Users.Where(x => x.Id == item.DoctorId.UserId).First(),
+                    Specialty = context.DoctorSpecialties.Where(x => x.Id == item.DoctorId.SpecialtyId).First()
+                };
+                timeTableViewModels.Add(new TimeTableViewModel() {
+                    Id= item.Id,
+                    Doctors=doctorsView,
+                    Monday=item.Monday,
+                    Tuesday=item.Tuesday,
+                    Thirsday=item.Thirsday,
+                    Wednesday=item.Wednesday,
+                    Friday=item.Friday                  
+                });
+            }
+            return View(timeTableViewModels);
         }
         [Authorize(Roles = "Admin, Doctor ")]
         [HttpGet]
         public async Task<IActionResult> TableCreate(User Id)
         {
             Doctor doctor = new Doctor();
-            doctor.UserId = Id;
+            DoctorsViewModel doctorsViewModel = new DoctorsViewModel();            
+
+            doctor.UserId = Id.Id;
             if (context.Doctors.Any())
             {
-                doctor.SpecialtyId = context.Doctors?.Where(x => x.UserId.Id == Id.Id)?.First().SpecialtyId;
+                doctor.SpecialtyId = context.Doctors?.Where(x => x.UserId == Id.Id)?.First().SpecialtyId;
+                doctorsViewModel.Id = doctor.Id;
+                doctorsViewModel.Specialty = context.DoctorSpecialties.Where(x => x.Id == doctor.Id).First();
+                doctorsViewModel.User = Id;
             }
 
             var times = context.TimeTables.ToList();
 
-            return View(doctor);
+            return View(doctorsViewModel);
         }
         
         [HttpPost]
@@ -52,7 +74,7 @@ namespace Hospital.Controllers
                 TimeTable table = new TimeTable
                 {
                     Id = model.Id,
-                    DoctorId=model.DoctorId,                                      
+                    DoctorId= model.DoctorId,                                      
                     Monday = model.Monday,
                     Tuesday = model.Tuesday,
                     Thirsday = model.Thirsday,

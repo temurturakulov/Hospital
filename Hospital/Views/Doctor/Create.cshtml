@@ -63,17 +63,19 @@
              @foreach (var doc in Model)
                 {
             <tr>
-                <form asp-controller="Doctor" asp-action="Create" method="post">
+                <form asp-controller="Doctor" asp-action="Create" method="post" enctype="multipart/form-data" >
                     <td>
-                        <label name ="userId" hidden>@doc</label>
+                        <input type="text" name ="userId" hidden value="@doc.Id.ToString()"/>
                     </td>
                     <td >@doc.FirstName</td>
                     <td> @doc.SecondName</td>
                     <td>@doc.LastName</td>
                     <td>
                         <select name="doctorSpecialty">
+                            <option >Выберите специальность</option>
                             @foreach (var speciality in ViewBag.DoctorSpecialty)
                             {
+                                    
                                 <option value="@speciality.Id">@speciality.Name</option>
                             }
                         </select>

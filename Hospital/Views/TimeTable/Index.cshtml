@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using System.Security.Claims;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model IEnumerable<Hospital.Models.TimeTable>
+@model IEnumerable<Hospital.ViewModels.TimeTableViewModel>
 @{
     ViewData["Title"] = "Расписание работы";
 }
@@ -89,13 +89,13 @@
         @foreach (var table in Model)
         {
             <tr>
-                <td>@table.DoctorId.UserId.FirstName</td>
-                <td>@table.DoctorId.UserId.SecondName</td>
-                <td>@table.DoctorId.UserId.LastName</td>
+                <td>@table.Doctors.User.FirstName</td>
+                <td>@table.Doctors.User.SecondName</td>
+                <td>@table.Doctors.User.LastName</td>
             </tr>
 
             <tr>
-                <td>@table.DoctorId.SpecialtyId.Name</td>
+                <td>@table.Doctors.Specialty.Name</td>
             </tr>
             <tr>
                 <td>@table.Monday</td>
