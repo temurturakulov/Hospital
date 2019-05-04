@@ -32,3 +32,12 @@ C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Hospital.R
 C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Hospital.dll
 C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Hospital.pdb
 C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Hospital.csprojAssemblyReference.cache
+C:\Users\silve\source\repos\Hospital\Hospital\bin\Debug\netcoreapp2.1\Hospital.deps.json
+C:\Users\silve\source\repos\Hospital\Hospital\bin\Debug\netcoreapp2.1\Hospital.runtimeconfig.json
+C:\Users\silve\source\repos\Hospital\Hospital\bin\Debug\netcoreapp2.1\Hospital.runtimeconfig.dev.json
+C:\Users\silve\source\repos\Hospital\Hospital\bin\Debug\netcoreapp2.1\Hospital.dll
+C:\Users\silve\source\repos\Hospital\Hospital\bin\Debug\netcoreapp2.1\Hospital.pdb
+C:\Users\silve\source\repos\Hospital\Hospital\bin\Debug\netcoreapp2.1\Hospital.Views.dll
+C:\Users\silve\source\repos\Hospital\Hospital\bin\Debug\netcoreapp2.1\Hospital.Views.pdb
+C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Hospital.Views.pdb
+C:\Users\silve\source\repos\Hospital\Hospital\obj\Debug\netcoreapp2.1\Hospital.csproj.CopyComplete

@@ -54,7 +54,7 @@
     <h2>@ViewData["Title"]</h2>
     <div asp-validation-summary="All"></div>
     <form method="POST" asp-controller="TimeTable" asp-action="TableCreate">
-
+        <input name="Id" value="" hidden/>
         <div>
             <label>Специальность</label><br /><input type="text" value="@Model.Specialty.Name" />
         </div>
@@ -67,42 +67,32 @@
         <div>
             <label>Отчество</label><br /><input type="text" value="@Model.User.LastName" />
         </div>
-        <input name="DoctorId" hidden />
+        <input name="Doctors" hidden  value="@{
+            new DoctorsViewModel() {
+
+            } 
+            }"/>
         <div>
             <label>Понедельник</label><br />
-            <input type="text" name="Monday" />
-            @*<input type="text" name="Monday"/>
-                <script>
-                    $('#datetimepicker').datetimepicker();
-                </script>*@
+            <input type="text" name="Monday" value=""/>
         </div>
         <div>
             <label>Вторник</label><br />
-            <input type="text" name="Tuesday" />
-            @*<script>
-                    $('#datetimepicker').datetimepicker();
-                </script>*@
+            <input type="text" name="Tuesday" value=""/>
+
         </div>
         <div>
             <label>Среда</label><br />
-            <input type="text" name="Thirsday" />
-            @*<script>
-                    $('#datetimepicker').datetimepicker();
-                </script>*@
+            <input type="text" name="Thirsday" value="" />
         </div>
         <div>
             <label>Четверг</label><br />
-            <input type="text" name="Wednesday" />
-            @*<script>
-                    $('#datetimepicker').datetimepicker();
-                </script>*@
+            <input type="text" name="Wednesday" value=""/>
         </div>
         <div>
             <label>Пятница</label><br />
-            <input type="text" name="Friday" />
-            @*<script>
-                    $('#datetimepicker').datetimepicker();
-                </script>*@
+            <input type="text" name="Friday" value=""/>
+
         </div>
 
         <input type="submit" value="Добавить" />

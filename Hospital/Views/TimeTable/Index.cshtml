@@ -59,7 +59,7 @@
 
         <form method="get" asp-action="TableCreate" asp-controller="TimeTable">
 
-            <input type="text" name="Id" value="@Context.User" hidden>
+            <input type="text" name="userId" value="@ViewBag.User.Id" hidden>
             <input type="submit" value="send" />
 
 

@@ -78,11 +78,22 @@ namespace Hospital.Controllers
                 var user = context.Users.Where(x => x.Id == userId).First();
                 var specialty = context.DoctorSpecialties.Where(x => x.Id == doctorSpecialty).First();
 
-                await context.Doctors.AddAsync(new Doctor()
+                var isDoctorPresent = context.Doctors.Any(x=> x.UserId == user.Id);
+
+                if (isDoctorPresent)
                 {
-                    UserId = user.Id,
-                    SpecialtyId = specialty.Id
-                });
+                    var doctor = context.Doctors.Where(x => x.UserId == user.Id).First();
+                    doctor.SpecialtyId = specialty.Id;
+                }
+                else
+                {
+                    await context.Doctors.AddAsync(new Doctor()
+                    {
+                        UserId = user.Id,
+                        SpecialtyId = specialty.Id
+                    });
+                }
+                
                 await context.SaveChangesAsync();
             }
             return RedirectToAction("Create");
